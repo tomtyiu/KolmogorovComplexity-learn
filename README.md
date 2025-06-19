@@ -1,9 +1,34 @@
-Kolmogorov Complexity: An Interactive Bilingual Ebook
-コルモゴロフ複雑性：対話型バイリンガル電子書籍
-Welcome to this interactive ebook on Kolmogorov complexity, where you can read content in English and Japanese, execute Python snippets directly in your browser via JupyterLite, view math rendered with LaTeX, and answer quizzes that record your progress to Supabase.
+# Kolmogorov Complexity Interactive Ebook
 
-この電子書籍では、英語と日本語の両方でコルモゴロフ複雑性について学ぶことができ、JupyterLiteを介してブラウザ上でPythonコードを実行し、LaTeXで数式を表示し、Supabaseへクイズの結果を送信して進捗を記録できます。
+This project contains a bilingual (English/Japanese) interactive ebook teaching Kolmogorov complexity.
+It uses MkDocs Material with JupyterLite for executable Python snippets, MathJax for LaTeX-rendered math, and embedded quiz analytics sent to Supabase.
 
-Chapter 1: Definition
-Chapter 2: Examples and Python Snippets
-Chapter 3: Quizzes
+## Prerequisites
+
+- Python 3.7+
+- Node.js (for JupyterLite build)
+
+## Setup
+
+1. Clone this repository.
+2. Install Python dependencies:
+   ```bash
+   pip install -r requirements.txt
+   ```
+3. Build the site:
+   ```bash
+   mkdocs build
+   ```
+4. Serve locally:
+   ```bash
+   mkdocs serve
+   ```
+
+## Supabase Quiz Analytics
+
+Replace `<YOUR_SUPABASE_URL>` and `<YOUR_SUPABASE_ANON_KEY>` in `docs/js/quiz_analytics.js` with your Supabase project details (for example, project "Untitled-2").
+
+Create a table `quiz_responses` with columns:
+- `quiz_id` (text)
+- `response` (json)
+- `timestamp` (timestamptz)
